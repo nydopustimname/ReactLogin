@@ -4,7 +4,8 @@ import "./Login.css";
 import { reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import  {login} from "../authReducer";
-import  {Redirect, withRouter} from "react-router-dom";
+
+import history from '../history.js';
 
 
 function handleChange(event) {
@@ -17,9 +18,7 @@ async function handleSubmit(event) {
         login();
         alert("Logged in");
         if (true) {
-            return (
-                <Redirect to="/user" />
-            )
+            history.push('/');
         }
 
     } catch (e) {
@@ -84,4 +83,4 @@ const Login = (props) => {
     }
 
 
- export default withRouter( connect(null, {login})) (Login);
+ export default (connect(null, {login})(Login));

@@ -10,19 +10,11 @@ import User from "./components/User";
 export default function Routes() {
   return (
     <Switch>
-        <Route exact path="/login">
-            <Login />
-        </Route>
-      <Route exact path="/">
-        <Home />
-      </Route>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Home} />
       {/* Finally, catch all unmatched routes */}
-      <Route>
-        <NotFound />
-      </Route>
-        <Route exact path="/user">
-            <User/>
-        </Route>
+        <Route component={NotFound} />
+        <Route exact path="/user" component={User} />
     </Switch>
   );
 }

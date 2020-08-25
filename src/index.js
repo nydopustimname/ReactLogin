@@ -8,7 +8,7 @@ import config from './config';
 import * as serviceWorker from './serviceWorker';
 import  { Provider } from 'react-redux';
 import store from "./store";
-import { createStore, combineReducers } from 'redux';
+import history from './history';
 
 Amplify.configure({
   Auth: {
@@ -36,10 +36,10 @@ Amplify.configure({
 
 ReactDOM.render(
     <Provider store={store}>
-  <Router>
-    <App />
-  </Router>
-</Provider>,
+        <Router history={history}>
+            <App />
+        </Router>
+    </Provider>,
   document.getElementById('root')
 );
 
